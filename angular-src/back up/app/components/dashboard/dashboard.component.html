@@ -1,0 +1,104 @@
+<h2 class="page-header">Dashboard</h2>
+<p>Welcome to your Dash</p>
+
+<!-- <h1>My Cart: {{ myCart.quantity }} | {{ myCart.totalPrice }}</h1> -->
+
+<h1>My Cart: {{ total }} | {{ selectedItems }}</h1>
+
+<div class="container">
+    <div class="row" >
+        <div class="col-xs-4" *ngFor= "let p of products let i = index">
+            <div class="card" >
+                    <img class="card-img-top img" src='{{p.imageUrl}}' style="width: 100%; height: 350px;">
+                    <div class="card-body">
+                    <h5 class="card-title">{{p.productName}}</h5>
+                    <h4>Price: {{p.price}}</h4>
+                    <div class="card-text">
+                        Product ID: {{p._id}}<br><br>
+                        Product Code: {{p.productCode}}<br><br>
+                        <div class="text-justify">
+                            Description: {{ p.description}}<br><br>
+                        </div>
+						Manufacturer: {{ p.manufacturer}}<br><br>
+						Os: {{ p.ostype}}<br><br>
+                        Rating: {{p.rating}}
+                    </div>
+                    <a (click)="addCart(p._id)" class="btn btn-primary">Add To Cart</a>
+                    <a [routerLink]="[p._id]" class="btn btn-secondary">View Product</a>
+                    </div>					
+            </div>
+        </div><!-- col 1 -->
+        <!--
+        <div class="col-xs-4" >
+            <div class="card" >
+                <img class="card-img-top img" src='{{products[i+1].imageUrl}}' style="width: 100%; ">
+                <div class="card-body">
+                <h5 class="card-title">{{products[i+1].productName}}</h5>
+                <h4>Price: {{products[i+1].price}}</h4>
+                <div class="card-text">
+                    Product ID: {{products[i+1]._id}}<br><br>
+                    Product Code: {{products[i+1].productCode}}<br><br>
+                    <div>
+                        Description: {{ products[i+1].description}}<br><br>
+                    </div>
+                    Manufacturer: {{ products[i+1].manufacturer}}<br><br>
+                    Os: {{ products[i+1].ostype}}<br><br>
+                    Rating: {{products[i+1].rating}}
+                </div>
+                <a (click)="addCart(products[i+1]._id)" class="btn btn-primary">Add To Cart</a>
+                <a [routerLink]="[products[i+1]._id]" class="btn btn-secondary">View Product</a>
+                </div>
+                
+            </div>
+        </div><!-- col 2 -->
+        <!--
+        <div class="col-xs-4" >
+            <div class="card" >
+                <img class="card-img-top img" src='{{products[i+2].imageUrl}}' style="width: 100%;">
+                <div class="card-body">
+                <h5 class="card-title">{{products[i+2].productName}}</h5>
+                <h4>Price: {{products[i+2].price}}</h4>
+                <div class="card-text">
+                    Product ID: {{products[i+2]._id}}<br><br>
+                    Product Code: {{products[i+2].productCode}}<br><br>
+                    <div>
+                        Description: {{ products[i+2].description}}<br><br>
+                    </div>
+                    Manufacturer: {{ products[i+2].manufacturer}}<br><br>
+                    Os: {{ products[i+2].ostype}}<br><br>
+                    Rating: {{products[i+2].rating}}
+                </div>
+                <a (click)="addCart(products[i+2]._id)" class="btn btn-primary">Add To Cart</a>
+                <a [routerLink]="[products[i+2]._id]" class="btn btn-secondary">View Product</a>
+                </div>
+                
+            </div>
+        </div><!-- col 3 -->
+        <!--
+        <div class="col-xs-3" >
+            <div class="card" >
+                <img class="card-img-top img" src='{{products[i+3].imageUrl}}' style="width: 100%;">
+                <div class="card-body">
+                <h5 class="card-title">{{products[i+3].productName}}</h5>
+                <h4>Price: {{products[i+3].price}}</h4>
+                <div class="card-text" >
+                    Product ID: {{products[i+3]._id}}<br><br>
+                    Product Code: {{products[i+3].productCode}}<br><br>
+                    <div>
+                        Description: {{ products[i+3].description}}<br><br>
+                    </div>
+                    Manufacturer: {{ products[i+3].manufacturer}}<br><br>
+                    Os: {{ products[i+3].ostype}}<br><br>
+                    Rating: {{products[i+3].rating}}
+                </div>
+                <a (click)="addCart(products[i+3]._id)" class="btn btn-primary">Add To Cart</a>
+                <a [routerLink]="[products[i+3]._id]" class="btn btn-secondary">View Product</a>
+                </div>
+                
+            </div>
+        </div><!-- col 4 -->
+          
+        
+    </div>
+</div>
+

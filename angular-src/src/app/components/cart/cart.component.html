@@ -1,0 +1,59 @@
+<h1>My Cart</h1>
+<table class="table" *ngIf='selectedProducts && selectedProducts.length' style="margin-bottom: 0px; margin-right: 0px">
+  <thead>
+    <tr class="tableheadercolor">
+      <th class="center">Product</th>
+      <th class="center">Quantity</th>
+      <th class="center">Price</th>
+      <th class="center">Total Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of selectedProducts; let i=index">
+      <td class="center">{{ product.productName }}</td>
+      <td class="center">
+        <input type="number" ngDefaultControl [(ngModel)]="product.quantity"
+          min="1" max="100" (change)="updateCart(product)">
+      </td>
+      <td class="center">{{ product.price | currency:'INR':'symbol':'1.2-2' }}</td>
+      <td class="center">{{ product.totalPrice | currency:'INR':'symbol':'1.2-2'}}</td>
+      <td>
+        <a (click)="remove(i)">
+          <span title="Delete" >X</span>
+        </a>
+      </td>
+
+    </tr>
+
+    
+    <tr>
+      <th class="center">Total</th>
+      <td></td>
+      <td></td>
+      <td class="center">
+        <strong> {{ grandTotal }}</strong>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+
+      <td>
+        <button type="button" class="btn btn-primary" (click)='onBack()'>
+          <span></span> Continue Shopping
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="checkout()">
+          Checkout
+          <span class="glyphicon glyphicon-play"></span>
+        </button>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+
+  </tbody>
+
+</table>
